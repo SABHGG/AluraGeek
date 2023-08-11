@@ -1,0 +1,11 @@
+{
+  "name": "db-sabhgeek",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"cd database && json-server --watch db.json"
+  },
+  "author": "",
+  "license": "ISC"
+}
