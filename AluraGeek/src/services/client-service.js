@@ -1,5 +1,10 @@
+const Url = {
+  1: "https://json-server-geek.vercel.app",
+  2: "http://localhost:3000"
+};
+
 export const getAllProducts = async (limit, category) => {
-  let url = "http://localhost:3000/productos";
+  let url = `${Url[2]}/productos`;
 
   if (limit) {
     url += `?_limit=${limit}`;
@@ -19,7 +24,7 @@ export const getAllProducts = async (limit, category) => {
 
 export const getProductById = async (id) => {
   try {
-    const response = await fetch(`http://localhost:3000/productos/${id}`);
+    const response = await fetch(`${Url[2]}/productos/${id}`);
     if (!response.ok) {
       throw new Error(
         `Error al obtener el producto. Estado de la respuesta: ${response.status}`
@@ -35,7 +40,7 @@ export const getProductById = async (id) => {
 
 export const getCategoryById = async (id) => {
   try {
-    const response = await fetch(`http://localhost:3000/categorias/${id}`);
+    const response = await fetch(`${Url[2]}/productos/${id}`);
     if (!response.ok) {
       // Si la respuesta no es "ok", lanza un error con el mensaje del estado de la respuesta
       throw new Error(
@@ -52,7 +57,7 @@ export const getCategoryById = async (id) => {
 };
 
 export const createProduct = async (product) => {
-  return await fetch("http://localhost:3000/productos", {
+  return await fetch(`${Url[2]}/productos`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -62,30 +67,20 @@ export const createProduct = async (product) => {
 };
 
 export const updateProduct = async (id, updateData) => {
-  try {
-    const response = await fetch(`http://localhost:3000/productos/${id}`, {
+  fetch(`${Url[2]}/productos/${id}`, {
     method: "PUT",
     headers: {
-      ContentType: "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(updateData),
   })
-
-  if (!response.ok) {
-    throw new Error(
-      `Error al actualizar el producto. Estado de la respuesta: ${response.status}`
-    );
-  }
-  const data = await response.json();
-  return data;
-  } catch (error) {
-    console.error("Error al actualizar el producto:", error);
-    throw error;
-  }
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
 };
 
 export const deleteProduct = async (id) => {
-  return await fetch(`http://localhost:3000/productos/${id}`, {
+  return await fetch(`${Url}/productos/${id}`, {
     method: "DELETE",
   });
 };

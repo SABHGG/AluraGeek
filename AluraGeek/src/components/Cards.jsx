@@ -9,13 +9,10 @@ const Cards = ({ limit, categoryId, categoryName }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [cardsToShow, setCardsToShow] = useState([...productos]);
 
-  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
   useEffect(() => {
     const fetchProducts = async () => {
       setIsLoading(true); // Indicar que se están cargando los productos
       try {
-        await sleep(1000);
         getAllProducts(limit, categoryId)
           .then((data) => {
             setProductos(data);
