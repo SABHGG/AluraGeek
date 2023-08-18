@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 function ProductId() {
     const { id } = useParams();
     return (
-        <div className="flex flex-col items-center justify-center mx-auto max-w-[1000px]">
+        <div className="flex flex-col items-center justify-center mx-auto ">
             <Header />
             <Producto id={id} />
             <Footer />

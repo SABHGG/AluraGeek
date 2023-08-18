@@ -28,7 +28,7 @@ const CreateProdut = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mx-auto max-w-[1000px]">
+    <div className="flex flex-col items-center justify-center mx-auto ">
       <Header />
       <div className="w-full">
         <h2>Editar el producto</h2>

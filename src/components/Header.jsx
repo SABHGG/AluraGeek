@@ -31,7 +31,7 @@ const Header = () => {
   return (
     <header className="w-full">
       <nav className="bg-white border-gray-200">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="max-w-[1400px] flex flex-wrap items-center justify-between mx-auto py-4">
           <div className="flex gap-4 max-md:justify-between max-md:w-full">
             <a href="/" className="flex items-center">
               <img
