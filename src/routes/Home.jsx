@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 function Home() {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col items-center justify-center mx-auto">
+      <div className="flex flex-col items-center justify-center mx-auto font-sans">
         <div className="">
           <Header />
           <Banner />
