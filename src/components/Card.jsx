@@ -4,7 +4,11 @@ const Card = ({ id, name, imgUrl, price }) => {
   return (
     <div className="border border-gray-200 rounded-lg shadow p-3 flex flex-col justify-between">
       <div className="">
-        <img className="w-full object-contain sm:w-90 md:w-80 lg:w-70" src={imgUrl} alt={name} />
+        <img
+          className="w-full object-contain sm:w-90 md:w-80 lg:w-70"
+          src={imgUrl}
+          alt={name}
+        />
       </div>
 
       <div className="flex flex-col">
@@ -12,7 +16,9 @@ const Card = ({ id, name, imgUrl, price }) => {
           {name}
         </h5>
 
-        <p className="mb-3 font-normal text-gray-700 ">{price}€</p>
+        <p className="mb-3 font-normal text-gray-700 flex items-center">
+          {price}€
+        </p>
         <a
           href={`/productos/${id}`}
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
@@ -21,7 +27,7 @@ const Card = ({ id, name, imgUrl, price }) => {
         </a>
       </div>
     </div>
-  ); 
+  );
 };
 
 Card.propTypes = {

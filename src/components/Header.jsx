@@ -8,7 +8,6 @@ const Header = () => {
     setSearch(e.target.value);
   };
 
-
   const handleMenu = () => {
     const navbarMenu = document.querySelector("#navbar-search");
     navbarMenu.classList.toggle("hidden");
@@ -27,20 +26,16 @@ const Header = () => {
     setSearch("");
   };
 
-
   return (
     <header className="w-full">
       <nav className="bg-white border-gray-200">
-        <div className="max-w-[1400px] flex flex-wrap items-center justify-between mx-auto py-4">
-          <div className="flex gap-4 max-md:justify-between max-md:w-full">
+        <div className="max-w-[1400px] flex flex-wrap items-center justify-between mx-auto py-4 max-md:mx-2 max-lg:mx-2">
+          <div className="flex gap-4 max-md:justify-between max-md:w-full max-md:mx-2 max-lg:mx-2">
             <a href="/" className="flex items-center">
-              <img
-                src={vectorLogo}
-                className="h-8 mr-3"
-                alt="Logo"
-              />
+              <img src={vectorLogo} className="h-8 mr-3" alt="Logo" />
               <span className="self-center text-2xl font-semibold whitespace-nowrap">
-                SabhGeek
+                <span className="text-blue-700">Sabh</span>
+                <span>Geek</span>
               </span>
             </a>
             <div className="flex md:order-1">
@@ -69,7 +64,11 @@ const Header = () => {
                 </svg>
                 <span className="sr-only">Search</span>
               </button>
-              <form action="/productos" onSubmit={handleSubmit} className="relative hidden md:block">
+              <form
+                action="/productos"
+                onSubmit={handleSubmit}
+                className="relative hidden md:block"
+              >
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <svg
                     className="w-4 h-4 text-gray-500"
@@ -124,7 +123,10 @@ const Header = () => {
               </button>
             </div>
           </div>
-          <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
+          <div
+            className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+            id="navbar-search"
+          >
             <form onSubmit={handleSubmit} className="relative mt-3 md:hidden">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <svg
