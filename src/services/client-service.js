@@ -1,10 +1,7 @@
-const Url = {
-  1: "https://json-server-geek.vercel.app",
-  2: "http://localhost:3000"
-};
+const Url = "https://api-alura-geek.onrender.com"
 
 export const getAllProducts = async (limit, category) => {
-  let url = `${Url[2]}/productos`;
+  let url = `${Url}/productos`;
 
   if (limit) {
     url += `?_limit=${limit}`;
@@ -24,7 +21,7 @@ export const getAllProducts = async (limit, category) => {
 
 export const getProductById = async (id) => {
   try {
-    const response = await fetch(`${Url[2]}/productos/${id}`);
+    const response = await fetch(`${Url}/productos/${id}`);
     if (!response.ok) {
       throw new Error(
         `Error al obtener el producto. Estado de la respuesta: ${response.status}`
@@ -40,7 +37,7 @@ export const getProductById = async (id) => {
 
 export const getCategoryById = async (id) => {
   try {
-    const response = await fetch(`${Url[2]}/productos/${id}`);
+    const response = await fetch(`${Url}/productos/${id}`);
     if (!response.ok) {
       // Si la respuesta no es "ok", lanza un error con el mensaje del estado de la respuesta
       throw new Error(
@@ -57,7 +54,7 @@ export const getCategoryById = async (id) => {
 };
 
 export const createProduct = async (product) => {
-  return await fetch(`${Url[2]}/productos`, {
+  return await fetch(`${Url}/productos`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -67,7 +64,7 @@ export const createProduct = async (product) => {
 };
 
 export const updateProduct = async (id, updateData) => {
-  fetch(`${Url[2]}/productos/${id}`, {
+  fetch(`${Url}/productos/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -75,12 +72,11 @@ export const updateProduct = async (id, updateData) => {
     body: JSON.stringify(updateData),
   })
     .then(response => response.json())
-    .then(response => console.log(response))
     .catch(err => console.error(err));
 };
 
 export const deleteProduct = async (id) => {
   return await fetch(`${Url}/productos/${id}`, {
     method: "DELETE",
-  });
+  }).then((res) => console.log(res));
 };

@@ -2,7 +2,7 @@ import vectorLogo from "../assets/Vector.webp";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col w-full bg-[#EAF2FD] p-16 max-lg:p-8 max-md:p-4">
+    <footer className="flex flex-col w-full bg-[#EAF2FD] p-16 py-3 max-lg:p-8 max-md:p-4">
       <section className="flex items-center justify-center">
         <div className="flex items-start justify-center w-full gap-32 max-w-[1400px] max-lg:flex-col max-lg:gap-4 ">
           <div className="flex items-center justify-center shrink-0">
