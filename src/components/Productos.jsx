@@ -50,7 +50,7 @@ const Productos = () => {
             className="border border-gray-200 rounded-lg shadow p-3 flex flex-col justify-between"
           >
             <div className="relative">
-              <Link to={`productos/${data.id}`}>
+              <Link to={`/productos/${data.id}`}>
                 <img
                   className="w-full h-auto object-contain sm:w-90 md:w-80 lg:w-70"
                   src={data.imgUrl}

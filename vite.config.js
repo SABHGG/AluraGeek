@@ -10,5 +10,10 @@ export default defineConfig({
       changeOrigin: true,
       rewrite: (path) => path.replace(/^\/productos/, ''),
     },
+    '/productos/:id': {
+      target: 'https://api-alura-geek.onrender.com',
+      changeOrigin: true,
+      rewrite: (path) => path,
+    },
   },
 })
