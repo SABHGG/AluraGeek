@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const Banner = () => {
   return (
-    <section className="py-20 px-7 max-w-[1400px] w-full bg-[url('src/assets/banner-image.webp')]">
+    <section className="py-20 px-7 max-w-[1400px] w-full bg-[url('src/assets/bannerimage.webp')]">
       <div className="flex lg:justify-start md:justify-start">
         <div className="flex flex-col gap-4 bg-opacity-50 text-white">
           <h1 className="font-bold text-4xl">Febrero Promocional</h1>

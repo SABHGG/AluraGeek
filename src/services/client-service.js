@@ -78,5 +78,5 @@ export const updateProduct = async (id, updateData) => {
 export const deleteProduct = async (id) => {
   return await fetch(`${Url}/productos/${id}`, {
     method: "DELETE",
-  }).then((res) => console.log(res));
+  }).then((res) => res.json());
 };
