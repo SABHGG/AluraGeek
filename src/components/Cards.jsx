@@ -1,5 +1,6 @@
 import Card from "./Card";
 import { getAllProducts } from "../services/client-service";
+import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { PropTypes } from "prop-types";
 import Loading from "./loading";
@@ -59,13 +60,13 @@ const Cards = ({ limit, categoryId, categoryName }) => {
       <div className="">
         <div className="flex justify-between my-2">
           <h2 className="text-2xl font-bold ">{categoryName}</h2>
-          <a
+          <Link
+            to={`/categorias/${categoryId}`}
             className="flex items-center justify-center"
-            href={`/categorias/${categoryId}`}
           >
             Ver mas
             <img src={`${arrow}`} alt="arrow" />
-          </a>
+          </Link>
         </div>
         <article className="grid gap-2 grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mx-auto">
           {cardsToShow.map((product) => (

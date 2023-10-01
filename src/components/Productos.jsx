@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getAllProducts, deleteProduct } from "../services/client-service";
-import {Toaster , toast} from "sonner"
-
+import { Toaster, toast } from "sonner";
+import { Link } from "react-router-dom";
 import deleteIcon from "../assets/deleteIcon.png";
 import editIcon from "../assets/editIcon.png";
 
@@ -22,27 +22,26 @@ const Productos = () => {
       });
   }, []);
 
-  const handleDelete = (id) =>{
+  const handleDelete = (id) => {
     return () => {
-      toast.promise(deleteProduct(id),{
+      toast.promise(deleteProduct(id), {
         loading: "Eliminando producto",
         success: "Producto eliminado correctamente",
-        error: "Error al eliminar el producto"
-      })
+        error: "Error al eliminar el producto",
+      });
       setProducto(producto.filter((data) => data.id !== id));
     };
-  }
+  };
 
   if (isLoading) {
     return <p className="text-center">Cargando...</p>;
   }
 
-
   return (
     <section className="mt-2">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold ">Todos los productos</h2>
-        <a href={`/productos/create`}>Crear producto</a>
+        <Link to={`/productos/create`}>Crear producto</Link>
       </div>
       <article className="grid gap-2 grid-cols-2  md:grid-cols-4 lg:grid-cols-6 mx-auto my-2 max-w-[1400px] md:px-2 lg:px-2">
         {producto.map((data) => (
@@ -51,21 +50,21 @@ const Productos = () => {
             className="border border-gray-200 rounded-lg shadow p-3 flex flex-col justify-between"
           >
             <div className="relative">
-              <a href={`productos/${data.id}`}><img
-                className="w-full h-auto object-contain sm:w-90 md:w-80 lg:w-70"
-                src={data.imgUrl}
-                alt={data.name}
-              /></a>
+              <Link to={`productos/${data.id}`}>
+                <img
+                  className="w-full h-auto object-contain sm:w-90 md:w-80 lg:w-70"
+                  src={data.imgUrl}
+                  alt={data.name}
+                />
+              </Link>
 
               <div className="absolute top-2 right-2 flex gap-2">
-                <button type="button" onClick={
-                  handleDelete(data.id)
-                  }>
+                <button type="button" onClick={handleDelete(data.id)}>
                   <img src={deleteIcon} alt="Delete icon" />
                 </button>
-                <a href={`/productos/edit/${data.id}`}>
+                <Link to={`/productos/edit/${data.id}`}>
                   <img src={editIcon} alt="Edit icon" />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -79,7 +78,7 @@ const Productos = () => {
           </div>
         ))}
       </article>
-      <Toaster/>
+      <Toaster />
     </section>
   );
 };
