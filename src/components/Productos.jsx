@@ -78,7 +78,12 @@ const Productos = () => {
           </div>
         ))}
       </article>
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          style: { background: "blue", color: "#fff" },
+          className: "my-toast",
+        }}
+      />
     </section>
   );
 };
