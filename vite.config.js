@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   proxy: {
     '/productos': {
-      target: 'http://localhost:3000/	',
+      target: 'https://api-alura-geek.onrender.com',
       changeOrigin: true,
       rewrite: (path) => path.replace(/^\/productos/, ''),
     },
