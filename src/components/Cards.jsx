@@ -1,12 +1,12 @@
 import Card from "./Card";
 import { getAllProducts } from "../services/client-service";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { PropTypes } from "prop-types";
 import Loading from "./loading";
 import arrow from "../assets/arrow_back.svg";
 
-const Cards = ({ limit, categoryId, categoryName }) => {
+const Cards = ({ limit, categoryId, categoryName, display }) => {
   const [productos, setProductos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [cardsToShow, setCardsToShow] = useState([...productos]);
@@ -54,19 +54,20 @@ const Cards = ({ limit, categoryId, categoryName }) => {
   if (isLoading) {
     return <Loading />;
   }
-
   return (
     <section className="flex flex-col mt-4">
       <div className="">
         <div className="flex justify-between my-2">
           <h2 className="text-2xl font-bold ">{categoryName}</h2>
-          <Link
-            to={`/categorias/${categoryId}`}
-            className="flex items-center justify-center"
-          >
-            Ver mas
-            <img src={`${arrow}`} alt="arrow" />
-          </Link>
+          {display ? (
+            <Link
+              to={`/categorias/${categoryId}`}
+              className="flex items-center justify-center"
+            >
+              Ver mas
+              <img src={`${arrow}`} alt="arrow" />
+            </Link>
+          ) : null}
         </div>
         <article className="grid gap-2 grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mx-auto">
           {cardsToShow.map((product) => (
@@ -88,6 +89,7 @@ Cards.propTypes = {
   limit: PropTypes.number.isRequired,
   categoryId: PropTypes.number.isRequired,
   categoryName: PropTypes.string.isRequired,
+  display: PropTypes.bool,
 };
 
 export default Cards;

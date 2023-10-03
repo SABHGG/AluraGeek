@@ -5,6 +5,7 @@ import Products from "./routes/Products.jsx";
 import ProductId from "./routes/ProductId.jsx";
 import ProductEdit from "./routes/ProductEdit.jsx";
 import CreateProdut from "./routes/createProduct.jsx";
+import CategoryId from "./routes/categoryId.jsx";
 import ErrorPage from "./components/Error-page.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
@@ -33,6 +34,12 @@ const router = createBrowserRouter([
   {
     path: "/productos/create",
     element: <CreateProdut />,
+    errorElement: <ErrorPage />,
+  }
+  ,
+  {
+    path: "/categorias/:id",
+    element: <CategoryId/>,
     errorElement: <ErrorPage />,
   }
 ]);
